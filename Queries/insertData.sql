@@ -45,10 +45,10 @@ INSERT INTO Exam (Ex_Name, Start_Time, Duration, Total_Marks, Num_of_Questions, 
 ('ML Final Exam', '2024-06-20 12:00:00', 90, 100, 15, 2);
 
 -- Insert Questions
-INSERT INTO Questions (Text, Answer, Mark, MCQ, TFQ, ExamID, Ins_ID) VALUES
-('What is the primary key used for?', 'To uniquely identify records', 10, 1, 0, 1, 1),
-('Which SQL command is used to retrieve data from a database?', 'SELECT', 10, 1, 0, 1, 1),
-('True or False: A neural network can be used for classification tasks.', 'True', 10, 0, 1, 2, 2);
+INSERT INTO Questions (Text, Answer, Mark, MCQ, TFQ, Ins_ID) VALUES
+('What is the primary key used for?', 'To uniquely identify records', 10, 1, 0,  1),
+('Which SQL command is used to retrieve data from a database?', 'SELECT', 10, 1, 0, 1),
+('True or False: A neural network can be used for classification tasks.', 'True', 10, 0, 1, 2);
 
 -- Insert Choices for MCQ Questions
 INSERT INTO Choice (Is_Correct, Text, Q_ID) VALUES
@@ -71,3 +71,9 @@ INSERT INTO Answers (StudentID, ExamID, CourseID, Score, TimeStamp) VALUES
 (2, 1, 1, 75, GETDATE()),
 (3, 2, 2, 90, GETDATE());
 
+
+INSERT INTO Exam_Question (ExamID, Q_ID) VALUES (2, 3); 
+INSERT INTO Exam_Question (ExamID, Q_ID) VALUES (2, 6); 
+; 
+INSERT INTO Exam_Question (ExamID, Q_ID) VALUES (4, 3); 
+INSERT INTO Exam_Question (ExamID, Q_ID) VALUES (4, 6); 

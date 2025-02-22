@@ -74,7 +74,7 @@ create table exam (
 );
 
 CREATE TABLE questions (
-    q_id INT IDENTITY(1,1), 
+    q_id INT IDENTITY(1,1) primary key, 
     examid INT,
     text NVARCHAR(MAX) NOT NULL,
     answer VARCHAR(200),
@@ -82,8 +82,6 @@ CREATE TABLE questions (
     mcq bit default 0,  
     tfq bit default 0,  
     ins_id INT,
-    primary key (q_id, examid), 
-    foreign key (examid) references exam(ex_id) ON DELETE CASCADE,
     foreign key (ins_id) references instructor(ins_id) ON DELETE SET NULL
 );
 
@@ -143,3 +141,19 @@ create table ins_track (
     foreign key (ins_id) references instructor(ins_id) on delete cascade,
     foreign key (trackid) references track(t_id) on delete cascade
 );
+
+
+CREATE TABLE Exam_Question (
+    ExamID INT,
+    Q_ID INT,
+    PRIMARY KEY (ExamID, Q_ID),
+    FOREIGN KEY (ExamID) REFERENCES Exam(Ex_id),
+    FOREIGN KEY (Q_ID) REFERENCES Questions(Q_ID)
+);
+
+
+
+
+
+
+
