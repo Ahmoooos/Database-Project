@@ -36,16 +36,6 @@ The database consists of the following tables:
 - **Ins_Track**: Maps instructors to the tracks they are involved in.
 - **Exam_Question**: Associates questions with specific exams.
 
-## Sample Data
-
-The `Insert Data All` script populates the database with sample data for testing purposes, including:
-
-- Various exams (Midterm, Final, Quiz, Practice Test)
-- Sample questions and choices
-- Student-course enrollments
-- Exam answers with scores
-- Relationships between tracks, branches, and courses
-
 ## How to Run
 
 1. Clone this repository:
