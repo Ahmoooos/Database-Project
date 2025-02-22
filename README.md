@@ -45,4 +45,3 @@ The database consists of the following tables:
   <strong>Made by:</strong><br>
   Eman Elsayed - Eman Sameh - Amira Fouad - Omar Mohamed - Michael - SeifEldien - Ahmed Tamer
 </p>
-![Screenshot (478)](https://github.com/user-attachments/assets/5afa3339-4d37-4f8d-80c0-d1ba9ce8dc85)
