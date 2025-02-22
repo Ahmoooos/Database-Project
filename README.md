@@ -41,4 +41,7 @@ The database consists of the following tables:
 1. Clone this repository:
    ```bash
    https://github.com/EmanElsayed2002/Database-Project.git
-### Made by (Eman Elsayed - Eman Sameh - Amira Fouad - Omar Mohamed - Michael - SeifEldien - Ahmed Tamer)
+<p align="center">
+  <strong>Made by:</strong><br>
+  Eman Elsayed - Eman Sameh - Amira Fouad - Omar Mohamed - Michael - SeifEldien - Ahmed Tamer
+</p>
