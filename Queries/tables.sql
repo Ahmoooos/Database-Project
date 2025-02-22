@@ -1,13 +1,15 @@
 use ITIExaminationSystem
 
 
-create table instructor (
-    ins_id int primary key identity(1,1),
-    ins_name varchar(100) not null,
-    salary money,
-    ins_mail varchar(100) unique,
-    specialization varchar(100)
+create table Instructor (
+    ins_id INT PRIMARY KEY IDENTITY(1,1),
+    ins_name VARCHAR(100) NOT NULL,
+    ins_password VARCHAR(50) NOT NULL,
+    salary MONEY,
+    ins_mail VARCHAR(100) UNIQUE,
+    specialization VARCHAR(100)
 );
+
 
 create table ins_phone (
     ins_id int,
@@ -47,18 +49,20 @@ create table track (
     st_id int
 );
 
-create table student (
-    st_id int primary key identity(1,1),
-    st_fname varchar(50) not null,
-    st_lname varchar(50) not null,
+create table Student (
+    st_id INT PRIMARY KEY IDENTITY(1,1),
+    st_fname VARCHAR(50) NOT NULL,
+    st_lname VARCHAR(50) NOT NULL,
+    st_password VARCHAR(50) NOT NULL,
     gender VARCHAR(10) CHECK (gender IN ('Male', 'Female')),
-    address text,
-    st_age int,
-    st_mail varchar(100) unique,
-    phone varchar(20),
-    t_id int,
-    foreign key (t_id) references track(t_id) on delete set null
+    address TEXT,
+    st_age INT CHECK (st_age >= 0),
+    st_mail VARCHAR(100) UNIQUE,
+    phone VARCHAR(20),
+    t_id INT,
+    FOREIGN KEY (t_id) REFERENCES Track(t_id) ON DELETE SET NULL
 );
+
 
 create table exam (
     ex_id int primary key identity,
@@ -91,8 +95,8 @@ create table choice (
     text VARCHAR(255) NOT NULL,
     q_id INT,
     examid INT,  
-    PRIMARY KEY (choice_id, q_id, examid), 
-    FOREIGN KEY (q_id, examid) references questions(q_id, examid) ON DELETE CASCADE
+    PRIMARY KEY (choice_id, q_id), 
+    FOREIGN KEY (q_id) references questions(q_id) ON DELETE CASCADE
 );
 
 
@@ -150,10 +154,3 @@ CREATE TABLE Exam_Question (
     FOREIGN KEY (ExamID) REFERENCES Exam(Ex_id),
     FOREIGN KEY (Q_ID) REFERENCES Questions(Q_ID)
 );
-
-
-
-
-
-
-

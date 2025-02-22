@@ -68,3 +68,33 @@ as
 begin
     select * from instructor where ins_id = @ins_id;
 end;
+
+
+CREATE PROCEDURE ViewInstructorCourses
+    @InstructorID INT
+AS
+BEGIN
+    SELECT C.crs_name AS CourseName, C.duration
+    FROM course C
+    JOIN Instructor I ON C.Ins_ID = I.Ins_id
+    WHERE I.Ins_id = @InstructorID;
+END;
+
+
+CREATE PROCEDURE InstructorLogin
+    @Ins_Username VARCHAR(50),
+    @Ins_Password VARCHAR(50)
+AS
+BEGIN
+    IF EXISTS (
+        SELECT 1 FROM Instructor
+        WHERE ins_name = @Ins_Username AND ins_password = @Ins_Password
+    )
+    BEGIN
+        PRINT 'Login successful!';
+    END
+    ELSE
+    BEGIN
+        PRINT 'Invalid username or password.';
+    END
+END;

@@ -70,3 +70,49 @@ begin
 end;
 
 
+CREATE PROCEDURE StudentLogin
+    @Stu_Username VARCHAR(50),
+    @Stu_Password VARCHAR(50)
+AS
+BEGIN
+    IF EXISTS (
+        SELECT 1 FROM Student
+        WHERE st_fname + ' '+ st_lname  = @Stu_Username AND st_password = @Stu_Password
+    )
+    BEGIN
+        PRINT 'Login successful!';
+    END
+    ELSE
+    BEGIN
+        PRINT 'Invalid username or password.';
+    END
+END;
+
+
+
+CREATE TABLE SystemLogins (
+    UserID INT,
+    Role VARCHAR(50),
+    LoginTime DATETIME DEFAULT GETDATE()
+);
+
+CREATE TRIGGER LogUserLogin
+ON Student
+AFTER INSERT
+AS
+BEGIN
+    INSERT INTO SystemLogins (UserID, Role)
+    SELECT St_ID, 'Student' FROM inserted;
+END;
+
+CREATE PROCEDURE GetStudentGrades
+    @StudentID INT
+AS
+BEGIN
+    SELECT E.Ex_name, A.Score
+    FROM answers A
+    JOIN Exam E ON A.ExamID = E.Ex_id
+    WHERE A.studentid = @StudentID;
+END;
+
+

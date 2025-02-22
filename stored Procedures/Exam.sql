@@ -50,5 +50,13 @@ begin
 end;
 
 
+CREATE PROCEDURE ViewAllInstructorsAndCourses
+AS
+BEGIN
+    SELECT I.Ins_name, C.crs_name AS CourseName
+    FROM Instructor I
+    JOIN course C ON I.Ins_id = C.Ins_ID;
+END;
+
 
 
