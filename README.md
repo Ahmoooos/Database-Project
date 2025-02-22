@@ -40,5 +40,5 @@ The database consists of the following tables:
 
 1. Clone this repository:
    ```bash
-   git clone https://github.com/yourusername/ITIExaminationSystem.git
+   https://github.com/EmanElsayed2002/Database-Project.git
 ### Made by (Eman Elsayed - Eman Sameh - Amira Fouad - Omar Mohamed - Michael - SeifEldien - Ahmed Tamer)
