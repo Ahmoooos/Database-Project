@@ -7,7 +7,8 @@ create table Instructor (
     ins_password VARCHAR(50) NOT NULL,
     salary MONEY,
     ins_mail VARCHAR(100) UNIQUE,
-    specialization VARCHAR(100)
+    specialization VARCHAR(100),
+	foreign key (br_id) references Branch(br_id) on delete cascade
 );
 
 
